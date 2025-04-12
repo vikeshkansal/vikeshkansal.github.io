@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        textarea#textInput {
+            width: 100vw;
+            height: 250px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #000000; 
+            color: #E0E0E0;
+        }
+        button#analyzeButton {
+            padding: 10px 20px;
+            background-color: #6ed1dc;
+            color: #000000;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button#analyzeButton:hover {
+            background-color: #63D471; 
+        }
+        #results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #1E1E1E; /* Slightly lighter surface */
+            border: 1px solid #434343;
+            border-radius: 5px;
+            font-family: var(--font-primary, sans-serif); /* Use font from styles.css */
+            color: #E0E0E0;
+        }
+        #results h2 {
+            margin-top: 0;
+            color: #7ED6DF; /* Teal for result titles */
+        }
+        #results pre { /* Use pre for better formatting of grouped counts */
+            white-space: pre-wrap; /* Wrap long lines */
+            word-wrap: break-word;
+            background-color: #121212; /* Darker background for code blocks */
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #434343;
+        }
+        .result-item {
+             margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Text Analyzer</h1>
+
+    <label for="textInput">Enter your text below (up to 10000+ words):</label>
+    <textarea id="textInput"></textarea><br>
+
+    <button id="analyzeButton">Analyze Text</button>
+
+    <div id="results" style="display: none;"> <!-- Initially hidden -->
+        <h2>Analysis Results</h2>
+        <div class="result-item"><strong>Character Count:</strong> <span id="charCount">0</span></div>
+        <div class="result-item"><strong>Letter Count:</strong> <span id="letterCount">0</span></div>
+        <div class="result-item"><strong>Word Count:</strong> <span id="wordCount">0</span></div>
+        <div class="result-item"><strong>Space Count:</strong> <span id="spaceCount">0</span></div>
+        <div class="result-item"><strong>Newline Count:</strong> <span id="newlineCount">0</span></div>
+        <div class="result-item"><strong>Special Symbol Count:</strong> <span id="symbolCount">0</span></div>
+
+        <div class="result-item">
+            <strong>Pronoun Counts:</strong>
+            <pre id="pronounCounts"></pre>
+        </div>
+
+        <div class="result-item">
+            <strong>Preposition Counts:</strong>
+            <pre id="prepositionCounts"></pre>
+        </div>
+
+        <div class="result-item">
+            <strong>Indefinite Article Counts:</strong>
+            <pre id="articleCounts"></pre>
+        </div>
+    </div>
+    <script src="Scripts/Q3.js"></script>
+</body>
+</html>

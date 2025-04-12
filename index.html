@@ -1,13 +1,239 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vikesh's Website</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll("nav a");
+            const sections = document.querySelectorAll(".content-section");
+
+            // Hide all sections except the first one
+            sections.forEach((section, index) => {
+                if (index !== 0)  section.style.display = "none";
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+
+                    // Remove active class from all links
+                    navLinks.forEach(item => item.classList.remove("active"));
+
+                    // Add active class to clicked link
+                    this.classList.add("active");
+
+                    const targetSection = this.getAttribute("data-section");
+
+                    sections.forEach(section => {
+                        section.style.display = "none";
+                    });
+
+                    document.getElementById(targetSection).style.display = "block";
+                });
+            });
+        });
+    </script>
+
 </head>
+
 <body>
-    <p>Hi</p>
+    <header>
+        <h1 style="margin:0; text-align: center">Vikesh Kansal</h1>
+    </header>
+
+    <main>
+        <section id="home" class="content-section">
+            <h2 style="text-align: center;">Welcome to My Portfolio!</h2>
+            <p style="text-align: center;">Click on one of the buttons below to know more.</p>
+            <nav class="center-nav">
+                <ul>
+                    <li><a href="#about" class="nav-box" data-section="about">About Me</a></li>
+                    <li><a href="#education" class="nav-box" data-section="education">Education</a></li>
+                    <li><a href="#skills" class="nav-box" data-section="skills">Skills & Projects</a></li>
+                    <li><a href="input.html" class="nav-box">Input 10000 Words (Q3)</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <section id="about" class="content-section" style="text-align: center;">
+            <h2>About Me</h2>
+            <nav class="center-nav">
+                <ul>
+                    <li><a href="#about" class="nav-box" data-section="about">About Me</a></li>
+                    <li><a href="#education" class="nav-box" data-section="education">Education</a></li>
+                    <li><a href="#skills" class="nav-box" data-section="skills">Skills & Projects</a></li>
+                </ul>
+            </nav>
+
+            <p>
+                Hello! I'm Vikesh Kansal, a first year student at Institute of Information Technology, Hyderabad.
+                I like exploring new areas of Mathematics and Computer Science. I find it very intriguing to
+                learn about the latest technologies and how they can be applied to solve real-world problems.
+                Apart from this, I enjoy playing the piano, playing video games, travelling, and reading.
+            </p>
+            <p>
+                I was born in Mansfield, England, and moved to India when I was 7 years old. I have lived in India ever
+                since. I am fluent in English and Hindi, and I currently reside in Delhi.
+            </p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/vikesh-kansal-123456789/" target="_blank">LinkedIn</a>
+                <a href="https://www.github.com/vikeshkansal" target="_blank">GitHub</a>
+            </div>
+
+            <div class="contact-info">
+                <p>
+                    Email: <a href="vikeshkansal456@gmail.com">vikeshkansal456@gmail.com</a>
+                </p>
+            </div>
+
+        </section>
+
+
+        <section id="education" class="content-section">
+            <h2 style="text-align: center;">Education</h2>
+            <nav class="center-nav">
+                <ul>
+                    <li><a href="#about" class="nav-box" data-section="about">About Me</a></li>
+                    <li><a href="#education" class="nav-box" data-section="education">Education</a></li>
+                    <li><a href="#skills" class="nav-box" data-section="skills">Skills & Projects</a></li>
+                </ul>
+            </nav>
+
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3>Institute of Information Technology, Hyderabad</h3>
+                    <p>Bachelor of Technology in Computer Science</p>
+                    <p>2025 - Present</p>
+                </div>
+                <div class="education-card">
+                    <h3>Prudence School, Delhi (CBSE)</h3>
+                    <p>Grade 9 - Grade 12</p>
+                    <p>2020 - 2024</p>
+                </div>
+                <div class="education-card">
+                    <h3>Presidium School, Delhi (CBSE)</h3>
+                    <p>Grade 3 - Grade 8</p>
+                    <p>2013 - 2019</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills" class="content-section">
+            <h2 style="text-align: center;">Skills & Projects</h2>
+            <nav class="center-nav">
+                <ul>
+                    <li><a href="#about" class="nav-box" data-section="about">About Me</a></li>
+                    <li><a href="#education" class="nav-box" data-section="education">Education</a></li>
+                    <li><a href="#skills" class="nav-box" data-section="skills">Skills & Projects</a></li>
+                </ul>
+            </nav>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="devicon-python-plain colored skill-logo" style="color: #3776AB;"></i>
+                    <h4>Python</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-javascript-plain skill-logo" style="color: #F7DF1E;"></i>
+                    <h4>JavaScript</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 60%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-html5-plain skill-logo" style="color: #E34F26;"></i>
+                    <h4>HTML</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-css3-plain skill-logo" style="color: #1572B6;"></i>
+                    <h4>CSS</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-nodejs-plain skill-logo" style="color: #339933;"></i>
+                    <h4>Node.js</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <i class="devicon-bash-plain skill-logo" style="color: #4EAA25;"></i>
+                    <h4>Bash</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 65%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-mysql-plain skill-logo" style="color: rgb(62, 62, 128)"></i>
+                    <h4>MySQL</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-mongodb-plain skill-logo" style="color: rgb(59, 147, 59)"></i>
+                    <h4>MongoDB</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-c-plain skill-logo" style="color: #1a4b72;"></i>
+                    <h4>C</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 90%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-cplusplus-plain skill-logo" style="color:#1a4b72"></i>
+                    <h4>C++</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 70%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-arduino-plain skill-logo" style="color:#00979D"></i>
+                    <h4>Arduino</h4>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 70%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="copyright">
+            <p>&copy; 2025 - Vikesh Kansal</p>
+        </div>
+    </footer>
+
+    <script src="Scripts/Q2.js"></script>
 </body>
+
 </html>
