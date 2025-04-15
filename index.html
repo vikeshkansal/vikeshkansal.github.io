@@ -8,29 +8,40 @@
     <title>Vikesh's Website</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const navLinks = document.querySelectorAll("nav a");
+            const navLinks = document.querySelectorAll("nav a[data-section]");  // Only select links with data-section
             const sections = document.querySelectorAll(".content-section");
 
             // Hide all sections except the first one
             sections.forEach((section, index) => {
-                if (index !== 0)  section.style.display = "none";
+                if (index !== 0) section.style.display = "none";
+            });
+
+            // Set initial active state for the first page (home)
+            const homeLinks = document.querySelectorAll("nav a[data-section='home']");
+            homeLinks.forEach(link => {
+                link.classList.add("active");
             });
 
             navLinks.forEach(link => {
                 link.addEventListener("click", function (e) {
                     e.preventDefault();
 
-                    // Remove active class from all links
-                    navLinks.forEach(item => item.classList.remove("active"));
-
-                    // Add active class to clicked link
-                    this.classList.add("active");
-
+                    // Remove active class from all links with the same data-section target
                     const targetSection = this.getAttribute("data-section");
+                    const sectionLinks = document.querySelectorAll(`nav a[data-section='${targetSection}']`);
+                    
+                    navLinks.forEach(item => item.classList.remove("active"));
+                    
+                    // Add active class to all links pointing to this section
+                    sectionLinks.forEach(sectionLink => {
+                        sectionLink.classList.add("active");
+                    });
 
                     sections.forEach(section => {
                         section.style.display = "none";
@@ -52,13 +63,12 @@
     <main>
         <section id="home" class="content-section">
             <h2 style="text-align: center;">Welcome to My Portfolio!</h2>
-            <p style="text-align: center;">Click on one of the buttons below to know more.</p>
             <nav class="center-nav">
                 <ul>
                     <li><a href="#about" class="nav-box" data-section="about">About Me</a></li>
                     <li><a href="#education" class="nav-box" data-section="education">Education</a></li>
                     <li><a href="#skills" class="nav-box" data-section="skills">Skills & Projects</a></li>
-                    <li><a href="input.html" class="nav-box">Input 10000 Words (Q3)</a></li>
+                    <li><a href="input.html" class="nav-box">Text Analyzer</a></li>
                 </ul>
             </nav>
         </section>
@@ -70,30 +80,40 @@
                     <li><a href="#about" class="nav-box" data-section="about">About Me</a></li>
                     <li><a href="#education" class="nav-box" data-section="education">Education</a></li>
                     <li><a href="#skills" class="nav-box" data-section="skills">Skills & Projects</a></li>
+                    <li><a href="./input.html" class="nav-box">Text Analyzer</a></li>
                 </ul>
             </nav>
 
-            <p>
-                Hello! I'm Vikesh Kansal, a first year student at Institute of Information Technology, Hyderabad.
-                I like exploring new areas of Mathematics and Computer Science. I find it very intriguing to
-                learn about the latest technologies and how they can be applied to solve real-world problems.
-                Apart from this, I enjoy playing the piano, playing video games, travelling, and reading.
-            </p>
-            <p>
-                I was born in Mansfield, England, and moved to India when I was 7 years old. I have lived in India ever
-                since. I am fluent in English and Hindi, and I currently reside in Delhi.
-            </p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/vikesh-kansal-123456789/" target="_blank">LinkedIn</a>
-                <a href="https://www.github.com/vikeshkansal" target="_blank">GitHub</a>
-            </div>
-
-            <div class="contact-info">
-                <p>
-                    Email: <a href="vikeshkansal456@gmail.com">vikeshkansal456@gmail.com</a>
+            <div class="about-container">
+                <p class="about-paragraph">
+                    Hello, I'm Vikesh Kansal, a first year student at Institute of Information Technology, Hyderabad.
+                    I like exploring new areas of Mathematics and Computer Science. I find it very intriguing to
+                    learn about the latest technologies and how they can be applied to solve real-world problems.
+                    Apart from this, I enjoy playing the piano, playing video games, travelling, and reading.
+                    <br>
+                    <br>
+                    I was born in Mansfield, England, and moved to India when I was 7 years old. I have lived in India
+                    ever since, and I currently reside in Delhi.
                 </p>
-            </div>
+                <img style="grid-column: 2 / 2; grid-row: 1; height: 200px; width: 200px; margin-bottom: 50px"
+                    alt="Vikesh Kansal" src="images/vikesh.jpg">
 
+                <!-- Image Gallery -->
+                <div class="gallery-header">
+                    <h3>Photo Gallery</h3>
+                </div>
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="images/viaduct.jpg" alt="Viaduct" class="gallery-image">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/tree.jpg" alt="Tree" class="gallery-image">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/reservoir.jpg" alt="Reservoir" class="gallery-image">
+                    </div>
+                </div>
+            </div>
         </section>
 
 
@@ -104,6 +124,7 @@
                     <li><a href="#about" class="nav-box" data-section="about">About Me</a></li>
                     <li><a href="#education" class="nav-box" data-section="education">Education</a></li>
                     <li><a href="#skills" class="nav-box" data-section="skills">Skills & Projects</a></li>
+                    <li><a href="input.html" class="nav-box">Text Analyzer</a></li>
                 </ul>
             </nav>
 
@@ -134,6 +155,7 @@
                     <li><a href="#about" class="nav-box" data-section="about">About Me</a></li>
                     <li><a href="#education" class="nav-box" data-section="education">Education</a></li>
                     <li><a href="#skills" class="nav-box" data-section="skills">Skills & Projects</a></li>
+                    <li><a href="input.html" class="nav-box">Text Analyzer</a></li>
                 </ul>
             </nav>
 
@@ -223,17 +245,45 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- CV Section -->
+            <div class="cv-section">
+                <h3 class="cv-heading">
+                    <a href="files/vikesh_kansal_cv.pdf" target="_blank" class="cv-link">
+                        <i class="devicon-file-pdf"></i>My CV
+                    </a>
+                </h3>
+            </div>
         </section>
 
     </main>
 
     <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/vikesh-kansal-5894a0278/" target="_blank">
+                <i class="devicon-linkedin-plain colored" style="font-size: 2rem; margin: 0 10px;"></i>
+            </a>
+            <a href="https://www.github.com/vikeshkansal" target="_blank">
+                <i class="devicon-github-original" style="font-size: 2rem; margin: 0 10px;"></i>
+            </a>
+        </div>
         <div class="copyright">
             <p>&copy; 2025 - Vikesh Kansal</p>
         </div>
+        <div class="contact-info">
+            <a href="vikeshkansal456@gmail.com">E-mail</a>
+        </div>
     </footer>
-
+    
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+    
     <script src="Scripts/Q2.js"></script>
+    <script src="Scripts/gallery.js"></script>
+
 </body>
 
 </html>

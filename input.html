@@ -31,12 +31,11 @@
             background-color: #1E1E1E; /* Slightly lighter surface */
             border: 1px solid #434343;
             border-radius: 5px;
-            font-family: var(--font-primary, sans-serif); /* Use font from styles.css */
+            font-family: var(--font-primary, sans-serif);
             color: #E0E0E0;
         }
         #results h2 {
             margin-top: 0;
-            color: #7ED6DF; /* Teal for result titles */
         }
         #results pre { /* Use pre for better formatting of grouped counts */
             white-space: pre-wrap; /* Wrap long lines */
@@ -53,15 +52,15 @@
 </head>
 <body>
 
-    <h1>Text Analyzer</h1>
+    <h1 style="text-align: center;">Text Analyzer</h1>
 
-    <label for="textInput">Enter your text below (up to 10000+ words):</label>
-    <textarea id="textInput"></textarea><br>
+    <label for="textInput">Enter your text below:</label>
+    <textarea id="textInput" placeholder="Enter..."></textarea><br>
 
     <button id="analyzeButton">Analyze Text</button>
 
-    <div id="results" style="display: none;"> <!-- Initially hidden -->
-        <h2>Analysis Results</h2>
+    <div id="results" > 
+        <h2 style="text-align: center;">Analysis Results</h2>
         <div class="result-item"><strong>Character Count:</strong> <span id="charCount">0</span></div>
         <div class="result-item"><strong>Letter Count:</strong> <span id="letterCount">0</span></div>
         <div class="result-item"><strong>Word Count:</strong> <span id="wordCount">0</span></div>
